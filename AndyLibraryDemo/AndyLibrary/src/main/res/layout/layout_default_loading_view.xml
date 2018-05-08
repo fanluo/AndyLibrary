@@ -9,7 +9,7 @@
         android:id="@+id/loading_view"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:background="@drawable/widget_shape_loading_bg"
+        android:background="@drawable/shape_loading_bg"
         android:gravity="center"
         android:orientation="vertical">
 

@@ -1,0 +1,5 @@
+<resources>
+    <style name="LoadingStyle">
+        <item name="android:indeterminateDrawable">@drawable/widget_shape_progress</item>
+    </style>
+</resources>

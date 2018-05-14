@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.andy.library.activity.FragmentHolderActivity;
+import com.library.demo.fragment.TestBaseFragment;
+import com.library.demo.fragment.TestBaseListFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         testPull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentHolderActivity.startMe(MainActivity.this, "测试页面", TestBaseListFragment.class.getName());
             }
         });
         Button testDrag = findViewById(R.id.btn_test_drag);

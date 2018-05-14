@@ -35,6 +35,8 @@ public class StateLayout extends FrameLayout {
 
     private OnClickListener mEmptyViewClickListener;
 
+    private boolean mIsLoading;
+
     public StateLayout(@NonNull Context context) {
         this(context, null);
     }
@@ -64,6 +66,14 @@ public class StateLayout extends FrameLayout {
         mCurrentShowingView.setVisibility(GONE);
         toBeView.setVisibility(VISIBLE);
         mCurrentShowingView = toBeView;
+    }
+
+    public boolean isLoading() {
+        return mIsLoading;
+    }
+
+    public void setLoading(boolean loading) {
+        mIsLoading = loading;
     }
 
     public void showContentView() {
@@ -97,6 +107,15 @@ public class StateLayout extends FrameLayout {
     public void showLoadingView() {
         View view = mLoadingView != null ? mLoadingView : mCustomLoadingView;
         switchView(view);
+    }
+
+    public void showLoadingView(boolean showContent) {
+        showLoadingView();
+        if (showContent) {
+            mContentView.setVisibility(VISIBLE);
+        } else {
+            mContentView.setVisibility(GONE);
+        }
     }
 
     public void setCustomEmptyView(@NonNull View view) {

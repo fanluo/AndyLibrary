@@ -1,8 +1,8 @@
 package com.library.demo;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,7 +16,21 @@ public class MainActivity extends AppCompatActivity {
         testPull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAct(TestSwipeLayoutAct.class.getName());
+
+            }
+        });
+        Button testDrag = findViewById(R.id.btn_test_drag);
+        testDrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAct(TestDragLayoutAct.class.getName());
+            }
+        });
+        Button testLayout = findViewById(R.id.btn_test_layout);
+        testLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startAct(TestLayoutAct.class.getName());
             }
         });
     }

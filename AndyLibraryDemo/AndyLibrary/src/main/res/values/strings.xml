@@ -3,4 +3,5 @@
     <string name="no_data">暂无数据</string>
     <string name="error_msg">亲，暂无网络啦～</string>
     <string name="pull_refresh">下拉刷新</string>
+    <string name="pull_up_load">上拉加载</string>
 </resources>

@@ -14,12 +14,14 @@
 
 
     <Button
+        android:id="@+id/btn_test_drag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试下拉刷新" />
+        android:text="测试拖拽" />
 
     <Button
+        android:id="@+id/btn_test_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试下拉刷新" />
+        android:text="测试layout下拉刷新" />
 </LinearLayout>

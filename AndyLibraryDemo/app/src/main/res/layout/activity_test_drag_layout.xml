@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.andy.library.widget.SuperSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
+
+<com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,6 +9,6 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+</com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 
-</com.andy.library.widget.SuperSwipeRefreshLayout>
 

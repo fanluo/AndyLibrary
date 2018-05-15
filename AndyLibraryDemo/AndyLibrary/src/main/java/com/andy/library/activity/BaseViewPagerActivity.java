@@ -1,5 +1,6 @@
 package com.andy.library.activity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -7,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.andy.library.R;
@@ -29,9 +31,24 @@ public abstract class BaseViewPagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideActionBar();
         setContentView(R.layout.activity_base_view_pager);
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            getActionBar().hide();
+            getSupportActionBar().hide();
+        }
         initView();
         initToolBar();
+    }
+
+    private void hideActionBar() {
+        if (getActionBar() != null) {
+            getActionBar().hide();
+        }
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
 
     private void initToolBar() {
@@ -43,6 +60,10 @@ public abstract class BaseViewPagerActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    protected void setTitle(String title) {
+        mTitle.setText(title);
     }
 
     private void initView() {

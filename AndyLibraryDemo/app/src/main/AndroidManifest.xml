@@ -20,6 +20,7 @@
         <activity android:name=".TestDragLayoutAct" />
         <activity android:name="com.andy.library.activity.FragmentHolderActivity" />
         <activity android:name="com.andy.library.activity.BaseListActivity" />
+        <activity android:name=".TestViewPagerActivity" />
     </application>
 
 </manifest>

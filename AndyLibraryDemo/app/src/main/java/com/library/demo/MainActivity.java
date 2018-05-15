@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         testLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startAct(TestLayoutAct.class.getName());
+                startAct(TestViewPagerActivity.class.getName());
             }
         });
     }

@@ -21,6 +21,7 @@
         <activity android:name="com.andy.library.activity.FragmentHolderActivity" />
         <activity android:name="com.andy.library.activity.BaseListActivity" />
         <activity android:name=".TestViewPagerActivity" />
+        <activity android:name=".TestMainActivity" />
     </application>
 
 </manifest>

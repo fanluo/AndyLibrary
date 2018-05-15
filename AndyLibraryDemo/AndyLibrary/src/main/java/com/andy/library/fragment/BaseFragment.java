@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import com.andy.library.widget.StateLayout;
+
 /**
  * 基础fragment (下拉后续替换下拉刷新view)
  * Created by luofan on 2018/5/14.
@@ -23,6 +25,8 @@ public abstract class BaseFragment extends Fragment implements FragmentBackListe
             fragmentPosition = bundle.getInt(FRAGMENT_POSITION);
         }
     }
+
+    protected abstract StateLayout getStateLayout();
 
     public int getFragmentPosition() {
         return fragmentPosition;

@@ -24,4 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试layout下拉刷新" />
+
+    <Button
+        android:id="@+id/btn_test_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试baseMainActivity" />
 </LinearLayout>

@@ -37,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 startAct(TestViewPagerActivity.class.getName());
             }
         });
+        Button testMain = findViewById(R.id.btn_test_main);
+        testMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAct(TestMainActivity.class.getName());
+            }
+        });
     }
 
     private void startAct(String name) {

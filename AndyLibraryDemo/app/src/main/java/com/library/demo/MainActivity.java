@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         testPull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentHolderActivity.startMe(MainActivity.this, "测试页面", TestBaseListFragment.class.getName());
+                startAct(TestStringActivity.class.getName());
             }
         });
         Button testDrag = findViewById(R.id.btn_test_drag);

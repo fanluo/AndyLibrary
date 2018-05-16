@@ -1,9 +1,6 @@
 package com.andy.library.util;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 /**
@@ -12,70 +9,48 @@ import java.util.Locale;
 
 public final class StringUtil {
 
-    public static final String YMD = "yyyy-MM-dd";
-    public static final String YMD_HM = "yyyy-MM-dd hh:mm";
-    public static final String YMD_HMS = "yyyy-MM-dd hh:mm:ss";
+    public static final String MONEY_PATTERN_1 = "##0.00";
+    public static final String MONEY_PATTERN_2 = ",##0.00";
+    public static final String MONEY_PATTERN_3 = "##0.##";
 
-    /**
-     * 获取格式化时间
-     *
-     * @param time 时间毫秒
-     * @return
-     */
-    public static String getFormatTime(long time) {
-        return getFormatTime(time, YMD);
+    public static String getFormatMoney(String money, String pattern) {
+        //构造方法的字符格式这里如果小数不足2位,会以0补足
+        DecimalFormat format = new DecimalFormat(pattern);
+        return format.format(money);
     }
 
-    /**
-     * 获取格式化时间
-     *
-     * @param time    时间毫秒
-     * @param pattern 时间格式
-     * @return
-     */
-    public static String getFormatTime(long time, String pattern) {
-        Date date = new Date();
-        date.setTime(time);
-        SimpleDateFormat formatter = new SimpleDateFormat(pattern, Locale.CHINA);
-        return formatter.format(date);
+    public static String getFormatMoney(String money) {
+        //构造方法的字符格式这里如果小数不足2位,会以0补足
+        DecimalFormat format = new DecimalFormat(MONEY_PATTERN_1);
+        return format.format(money);
     }
 
-    /**
-     * 转换时间格式
-     *
-     * @param oldTime        旧时间字符串
-     * @param oldTimePattern 旧时间格式
-     * @param newTimePattern 新时间格式
-     * @return
-     */
-    public static String convertTime(String oldTime, String oldTimePattern, String newTimePattern) {
-        DateFormat oldDate = new SimpleDateFormat(oldTimePattern, Locale.CHINA);
-        DateFormat newDate = new SimpleDateFormat(newTimePattern, Locale.CHINA);
-        try {
-            Date date = oldDate.parse(oldTime);
-            return newDate.format(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return oldTimePattern;
+    public static String getFormatMoney(double money) {
+        //构造方法的字符格式这里如果小数不足2位,会以0补足
+        DecimalFormat format = new DecimalFormat(MONEY_PATTERN_1);
+        return format.format(money);
     }
 
-    /**
-     * 获取时间(毫秒)
-     *
-     * @param timeString 时间字符串
-     * @param pattern    时间格式
-     * @return the number of milliseconds
-     */
-    public static long getTime(String timeString, String pattern) {
-        DateFormat dateFormat = new SimpleDateFormat(pattern, Locale.CHINA);
-        try {
-            Date date = dateFormat.parse(timeString);
-            return date.getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return 0;
+    public static String getFormatMoney(double money, String pattern) {
+        DecimalFormat format = new DecimalFormat(pattern);
+        return format.format(money);
+    }
+
+    public static String getHidePhoneNum(String phoneNum) {
+        //$1代表括号1里面的内容，$2代表括号2里面的内容，中间需要替换的没有括号
+        return phoneNum.replaceAll("(\\d{3})\\d*(\\d{4})", "$1****$2");
+    }
+
+    public static String getHideBankCardNum(String bankCardNum) {
+        //$1代表括号1里面的内容，$2代表括号2里面的内容，中间需要替换的没有括号
+        return bankCardNum.replaceAll("(\\d{4})\\d*(\\d{4})", "$1****$2");
+    }
+
+    public static String getHideString(String str, int start, int end) {
+        //$1代表括号1里面的内容，$2代表括号2里面的内容，中间需要替换的没有括号
+        String format = "(\\d{%1$d})\\d*(\\d{%2$d})";
+        String regex = String.format(Locale.CHINA, format, start, end);
+        return str.replaceAll(regex, "$1****$2");
     }
 
 }

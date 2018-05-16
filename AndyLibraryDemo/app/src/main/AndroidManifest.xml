@@ -22,6 +22,7 @@
         <activity android:name="com.andy.library.activity.BaseListActivity" />
         <activity android:name=".TestViewPagerActivity" />
         <activity android:name=".TestMainActivity" />
+        <activity android:name=".TestStringActivity" />
     </application>
 
 </manifest>

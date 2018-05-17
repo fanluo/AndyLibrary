@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
                 startAct(TestMainActivity.class.getName());
             }
         });
+        Button testGridPassword = findViewById(R.id.btn_test_grid_password);
+        testGridPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAct(TestGridPasswordActivity.class.getName());
+            }
+        });
     }
 
     private void startAct(String name) {

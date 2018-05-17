@@ -23,6 +23,7 @@
         <activity android:name=".TestViewPagerActivity" />
         <activity android:name=".TestMainActivity" />
         <activity android:name=".TestStringActivity" />
+        <activity android:name=".TestGridPasswordActivity" />
     </application>
 
 </manifest>

@@ -30,4 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试baseMainActivity" />
+
+    <Button
+        android:id="@+id/btn_test_grid_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试表格密码输入框" />
 </LinearLayout>

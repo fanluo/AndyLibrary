@@ -15,12 +15,24 @@ public class TestStringActivity extends AppCompatActivity {
 
     TextView mTextView;
 
+    TextView mAmountText;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_string);
         mTextView = findViewById(R.id.text);
+        mAmountText = findViewById(R.id.text_amount);
         testHideString();
+        testAmount();
+    }
+
+    private void testAmount(){
+        String amount = "1398.13";
+        mAmountText.setText(StringUtil.getFormatMoney(amount));
+
+        String amount1 = "";
+        mAmountText.setText(StringUtil.getFormatMoney(amount1));
     }
 
     private void testHideString() {

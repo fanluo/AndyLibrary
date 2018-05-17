@@ -1,5 +1,7 @@
 package com.andy.library.util;
 
+import android.text.TextUtils;
+
 import java.text.DecimalFormat;
 import java.util.Locale;
 
@@ -14,21 +16,19 @@ public final class StringUtil {
     public static final String MONEY_PATTERN_3 = "##0.##";
 
     public static String getFormatMoney(String money, String pattern) {
-        //构造方法的字符格式这里如果小数不足2位,会以0补足
+        if (TextUtils.isEmpty(money) || !TextUtils.isDigitsOnly(money)) {
+            money = "0";
+        }
         DecimalFormat format = new DecimalFormat(pattern);
-        return format.format(money);
+        return format.format(Double.valueOf(money));
     }
 
     public static String getFormatMoney(String money) {
-        //构造方法的字符格式这里如果小数不足2位,会以0补足
-        DecimalFormat format = new DecimalFormat(MONEY_PATTERN_1);
-        return format.format(money);
+        return getFormatMoney(money, MONEY_PATTERN_1);
     }
 
     public static String getFormatMoney(double money) {
-        //构造方法的字符格式这里如果小数不足2位,会以0补足
-        DecimalFormat format = new DecimalFormat(MONEY_PATTERN_1);
-        return format.format(money);
+        return getFormatMoney(money, MONEY_PATTERN_1);
     }
 
     public static String getFormatMoney(double money, String pattern) {

@@ -1,8 +1,11 @@
 package com.andy.library.util;
 
+import com.blankj.utilcode.constant.TimeConstants;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -11,6 +14,13 @@ import java.util.Locale;
  */
 
 public class TimeUtil {
+
+    public static final int MSEC = 1;
+    public static final int SEC = 1000;
+    public static final int MIN = 60000;
+    public static final int HOUR = 3600000;
+    public static final int DAY = 86400000;
+
     public static final String YMD = "yyyy-MM-dd";
     public static final String YMD_HM = "yyyy-MM-dd hh:mm";
     public static final String YMD_HMS = "yyyy-MM-dd hh:mm:ss";
@@ -47,7 +57,7 @@ public class TimeUtil {
      * @param newTimePattern 新时间格式
      * @return
      */
-    public static String convertTime(String oldTime, String oldTimePattern, String newTimePattern) {
+    public static String convertTimeForm(String oldTime, String oldTimePattern, String newTimePattern) {
         DateFormat oldDate = new SimpleDateFormat(oldTimePattern, Locale.CHINA);
         DateFormat newDate = new SimpleDateFormat(newTimePattern, Locale.CHINA);
         try {
@@ -76,4 +86,36 @@ public class TimeUtil {
         }
         return 0;
     }
+
+    /**
+     * 是否为今天
+     *
+     * @param timeString 时间字符串
+     * @param pattern    时间格式
+     * @return
+     */
+    public static boolean isToday(String timeString, String pattern) {
+        return isToday(getTime(timeString, pattern));
+    }
+
+    /**
+     * 是否为今天
+     *
+     * @param millis 毫秒
+     * @return
+     */
+    public static boolean isToday(final long millis) {
+        long time = getTodayTime();
+        return millis >= time && millis < time + TimeConstants.DAY;
+    }
+
+    private static long getTodayTime() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTimeInMillis();
+    }
+
 }
